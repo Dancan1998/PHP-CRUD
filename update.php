@@ -19,8 +19,7 @@ if (isset($_POST["submit"])) {
   $sql = "UPDATE crud SET id=$id,name='$name',email='$email',mobile='$mobile',password='$password' WHERE id=$id";
   $result = mysqli_query($con, $sql);
   if ($result) {
-    // header("location:display.php");
-    echo "Updated Successfully";
+    header("location:display.php");
   } else {
     die(mysqli_error($con));
   }
@@ -59,7 +58,7 @@ if (isset($_POST["submit"])) {
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" value=<?php echo $password; ?> autocomplete="off" name="password" placeholder="Password">
+            <input type="text" class="form-control" id="exampleInputPassword1" value=<?php echo $password; ?> autocomplete="off" name="password" placeholder="Password">
         </div>
        
         <button type="submit" class="btn btn-primary" name="submit">Update</button>
